@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taía Server</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="/img/logo-negativa.png" alt="Logo">
+        <nav class="navbar"> 
+          <a href="">Mapa</a>
+          <a href="">Tutoriais</a>
+          <a href="">Crafts</a>
+          <a href="">Sobre</a>
+          <a href="">Lore</a>
+        </nav>
+    </div>
+    <div class="sec1">
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide slide1">
+            <div class="container">
+              <h1>Itens Mágicos</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas itaque labore pariatur accusamus dignissimos, dolorem doloribus earum quo eveniet sunt corporis eligendi suscipit facere vitae, illum obcaecati iure quod quaerat?</p>
+            </div>
+          </div>
+          <div class="swiper-slide slide2">
+            <div class="container">
+              <h1>Adquira Pets</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos consectetur nisi quisquam odit veritatis velit a architecto dicta eius pariatur illo, nobis quidem cupiditate. Aperiam molestias delectus quod nobis saepe.</p>
+            </div>
+          </div>
+          <div class="swiper-slide slide3">Slide 3</div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+    </div>
+    <section class="sec2">
+      <canvas id="sena1"></canvas>
+    </section>
+    <script src="/lb/rellax.min.js"></script>
+    <script>
+        var rellax = new Rellax('.rellax');
+    </script>
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+    </script>   
+    <script type="module">
+
+      // Find the latest version by visiting https://cdn.skypack.dev/three.
+    
+      import * as THREE from 'https://cdn.skypack.dev/three';
+    
+        const scene = new THREE.Scene();
+			const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			const renderer = new THREE.WebGLRenderer( {canvas: sena1, alpha: true} );
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			const geometry = new THREE.BoxGeometry();
+			const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+			const cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			const animate = function () {
+				requestAnimationFrame( animate );
+
+				cube.rotation.y += 0.01;
+
+				renderer.render( scene, camera );
+			};
+
+			animate();
+    </script>
+</body>
+</html>
