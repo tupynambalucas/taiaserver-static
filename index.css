@@ -101,7 +101,7 @@ html,body{
     -webkit-backface-visibility: hidden;
 }
 .slide2{
-    background-image: url("./img/teste1.png");
+    background-image: url(./img/teste1.png);
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
 }
